@@ -1,0 +1,119 @@
+/* ============================================================
+   tokens.css — Sistema de diseño de la marca
+   Derivado de Imports/Logotipo.png e Imports/inicio.png
+   ============================================================ */
+
+:root {
+  /* ---- Colores base de la marca ---- */
+  --ink: #304040;          /* texto principal, dark slate */
+  --slate-blue: #404050;   /* secundario, títulos */
+  --sage: #90a090;         /* acento verde salvia */
+  --mist: #a0b0a0;         /* acento claro */
+  --paper: #f0f0e0;        /* fondo claro cálido */
+  --slate-ink: #506070;    /* trazos de iconos */
+
+  /* ---- Paleta de roles (tema claro) ---- */
+  --bg: #f0f0e0;
+  --bg-alt: #e6e6d4;
+  --surface: #fafaf1;
+  --surface-alt: #e9e9d9;
+  --text: #2f3b3b;
+  --text-soft: #4e5f5f;
+  --text-faint: #75817e;
+  --accent: #90a090;
+  --accent-strong: #5c7260;   /* salvia oscuro: enlaces sobre claro */
+  --accent-soft: #dfe4d5;
+  --border: #d2d2bf;
+  --chip-bg: #33464a;         /* fondo para iconos blancos */
+  --chip-bg-soft: #dfe3d4;
+  --code-bg: #e9e9d9;
+  --glass-bg: rgb(255 255 255 / 0.55);     /* fondo difuminado sobre imágenes */
+  --glass-border: rgb(255 255 255 / 0.7);
+
+  /* ---- Sombras ---- */
+  --shadow-sm: 0 1px 2px rgb(48 64 64 / 0.08);
+  --shadow-md: 0 6px 24px rgb(48 64 64 / 0.12);
+  --shadow-lg: 0 16px 48px rgb(48 64 64 / 0.18);
+
+  /* ---- Radios ---- */
+  --radius-s: 6px;
+  --radius-m: 12px;
+  --radius-l: 20px;
+  --radius-pill: 999px;
+
+  /* ---- Espaciado ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4rem;
+  --space-12: 5rem;
+
+  /* ---- Contenedor ---- */
+  --container: 76rem;
+  --container-narrow: 52rem;
+
+  /* ---- Tipografía ---- */
+  --font-display: "Sora", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+
+  --text-xs: clamp(0.72rem, 0.68rem + 0.2vw, 0.8rem);
+  --text-sm: clamp(0.84rem, 0.8rem + 0.2vw, 0.92rem);
+  --text-base: clamp(0.98rem, 0.94rem + 0.2vw, 1.08rem);
+  --text-lg: clamp(1.1rem, 1.05rem + 0.25vw, 1.28rem);
+  --text-xl: clamp(1.3rem, 1.2rem + 0.5vw, 1.6rem);
+  --text-2xl: clamp(1.7rem, 1.5rem + 1vw, 2.2rem);
+  --text-hero: clamp(2.3rem, 1.4rem + 4.2vw, 4.2rem);
+
+  --leading-tight: 1.12;
+  --leading-snug: 1.4;
+  --leading-relaxed: 1.7;
+
+  /* ---- Transiciones ---- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 150ms;
+  --dur: 300ms;
+  --dur-slow: 600ms;
+
+  /* ---- Capas ---- */
+  --z-header: 100;
+  --z-skip: 200;
+
+  /* ---- Cabecera ---- */
+  --header-h: 9.5rem; /* fallback; JS lo recalcula con precisión */
+}
+
+/* ---- Tema oscuro (identidad de la marca) ---- */
+[data-theme="dark"] {
+  --bg: #2b3939;
+  --bg-alt: #243131;
+  --surface: #334443;
+  --surface-alt: #3b4d4c;
+  --text: #edf0e6;
+  --text-soft: #b3c1b3;
+  --text-faint: #8fa09c;
+  --accent: #9db09d;
+  --accent-strong: #b7c6b5;   /* enlaces sobre oscuro: salvia claro */
+  --accent-soft: #3a4d49;
+  --border: #435656;
+  --chip-bg: #22302f;
+  --chip-bg-soft: #3f5350;
+  --code-bg: #243131;
+  --glass-bg: rgb(255 255 255 / 0.18);
+  --glass-border: rgb(255 255 255 / 0.28);
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-md: 0 6px 24px rgb(0 0 0 / 0.35);
+  --shadow-lg: 0 16px 48px rgb(0 0 0 / 0.45);
+}
+
+/* ---- Movimiento ---- */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur: 1ms;
+    --dur-slow: 1ms;
+  }
+}
