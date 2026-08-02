@@ -157,8 +157,8 @@ a:hover {
 }
 
 .nav__link.is-active {
-  color: var(--bg);
-  background: var(--chip-bg);
+  color: var(--nav-active-text);
+  background: var(--nav-active-bg);
 }
 
 .nav__actions {
@@ -175,16 +175,15 @@ a:hover {
   height: 2.5rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
-  background: var(--surface);
-  color: var(--text-soft);
+  background: transparent;
+  color: var(--text);
   cursor: pointer;
-  font-size: var(--text-lg);
-  transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease),
-    border-color var(--dur-fast) var(--ease);
+  font-size: var(--text-base);
+  transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
 }
 
 .theme-toggle:hover {
-  color: var(--text);
+  color: var(--accent-strong);
   border-color: var(--accent);
 }
 
@@ -271,8 +270,8 @@ a:hover {
 }
 
 .btn--primary {
-  background: var(--chip-bg);
-  color: var(--bg);
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   box-shadow: var(--shadow-sm);
 }
 
@@ -282,8 +281,8 @@ a:hover {
 
 .btn--ghost {
   background: transparent;
-  color: var(--text);
-  border-color: var(--border);
+  color: var(--btn-ghost-text);
+  border-color: var(--btn-ghost-border);
 }
 
 .btn--ghost:hover {
@@ -368,37 +367,112 @@ a:hover {
 .hero__logo {
   width: 100%;
   height: auto;
+  aspect-ratio: 1042 / 859;
   display: block;
+  object-fit: fill;
 }
 
-.hero__glassline {
-  margin-bottom: var(--space-5);
+.hero__eyebrow {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
 }
 
 .hero__thesis {
-  display: inline;
+  margin-bottom: var(--space-6);
   font-size: var(--text-hero);
   font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.25;
+  line-height: var(--leading-tight);
 }
 
 .hero__thesis em {
   font-style: normal;
-  color: var(--accent-strong);
+  color: var(--hero-accent);
 }
 
 .hero__intro {
-  display: inline;
+  max-width: 34rem;
+  margin-bottom: var(--space-3);
   color: var(--text-soft);
   font-size: var(--text-lg);
-  line-height: 1.9;
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+.hero__intro-accent {
+  color: var(--hero-accent);
+}
+
+.hero__sub {
+  max-width: 34rem;
+  margin-bottom: var(--space-6);
+  color: var(--text-faint);
+  font-size: var(--text-base);
+  line-height: 1.8;
 }
 
 .hero__actions {
   display: inline-flex;
   flex-wrap: wrap;
   gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.hero__tech {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+}
+
+/* Entrada escalonada del hero (solo al cargar) */
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero__in {
+  animation: hero-in var(--dur-slow) var(--ease) both;
+}
+
+.hero__eyebrow {
+  animation-delay: 0ms;
+}
+
+.hero__thesis {
+  animation-delay: 120ms;
+}
+
+.hero__intro {
+  animation-delay: 240ms;
+}
+
+.hero__sub {
+  animation-delay: 340ms;
+}
+
+.hero__actions {
+  animation-delay: 440ms;
+}
+
+.hero__tech {
+  animation-delay: 520ms;
+}
+
+.hero__visual {
+  animation-delay: 620ms;
 }
 
 .icon-btn {
@@ -849,6 +923,12 @@ a:hover {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .hero__in {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
 

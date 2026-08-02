@@ -2,11 +2,22 @@
 const toggle = document.getElementById("theme-toggle");
 const raiz = document.documentElement;
 const iconoTema = toggle.querySelector("span");
+const heroLogo = document.getElementById("hero-logo");
+const heroImagenes = {
+  light: "assets/inicio.png",
+  dark: "assets/inicio-noche.png",
+};
+
+Object.values(heroImagenes).forEach((src) => {
+  const img = new Image();
+  img.src = src;
+});
 
 function aplicarTema(tema) {
   raiz.dataset.theme = tema;
   toggle.setAttribute("aria-pressed", String(tema === "dark"));
   iconoTema.textContent = tema === "dark" ? "☀" : "☾";
+  if (heroLogo) heroLogo.src = heroImagenes[tema];
 }
 
 aplicarTema(raiz.dataset.theme || "light");

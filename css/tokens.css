@@ -30,6 +30,16 @@
   --glass-bg: rgb(255 255 255 / 0.55);     /* fondo difuminado sobre imágenes */
   --glass-border: rgb(255 255 255 / 0.7);
 
+  /* ---- Roles derivados (botones y navegación) ---- */
+  --btn-primary-bg: var(--chip-bg);
+  --btn-primary-text: var(--bg);
+  --btn-ghost-border: var(--border);
+  --btn-ghost-text: var(--text);
+  --nav-active-bg: var(--chip-bg);
+  --nav-active-text: var(--bg);
+  --text-muted: var(--text-soft);      /* texto aún más discreto (hero__tech) */
+  --hero-accent: var(--accent-strong); /* destacados del hero */
+
   /* ---- Sombras ---- */
   --shadow-sm: 0 1px 2px rgb(48 64 64 / 0.08);
   --shadow-md: 0 6px 24px rgb(48 64 64 / 0.12);
@@ -66,7 +76,7 @@
   --text-lg: clamp(1.1rem, 1.05rem + 0.25vw, 1.28rem);
   --text-xl: clamp(1.3rem, 1.2rem + 0.5vw, 1.6rem);
   --text-2xl: clamp(1.7rem, 1.5rem + 1vw, 2.2rem);
-  --text-hero: clamp(2.3rem, 1.4rem + 4.2vw, 4.2rem);
+  --text-hero: clamp(2.15rem, 1.3rem + 3.7vw, 3.8rem);
 
   --leading-tight: 1.12;
   --leading-snug: 1.4;
@@ -88,22 +98,31 @@
 
 /* ---- Tema oscuro (identidad de la marca) ---- */
 [data-theme="dark"] {
-  --bg: #2b3939;
-  --bg-alt: #243131;
-  --surface: #334443;
-  --surface-alt: #3b4d4c;
-  --text: #edf0e6;
-  --text-soft: #b3c1b3;
-  --text-faint: #8fa09c;
-  --accent: #9db09d;
-  --accent-strong: #b7c6b5;   /* enlaces sobre oscuro: salvia claro */
-  --accent-soft: #3a4d49;
-  --border: #435656;
-  --chip-bg: #22302f;
-  --chip-bg-soft: #3f5350;
-  --code-bg: #243131;
-  --glass-bg: rgb(255 255 255 / 0.18);
-  --glass-border: rgb(255 255 255 / 0.28);
+  --bg: #202421;
+  --bg-alt: #292e2a;
+  --surface: #292e2a;
+  --surface-alt: #2f3430;
+  --text: #f2f0e8;
+  --text-soft: #bdbdb8;
+  --text-muted: #a9aea7;
+  --text-faint: #a3a8a1;
+  --accent: #a9b5a2;
+  --accent-strong: #c8d1c2;   /* enlaces y rótulos: salvia muy claro */
+  --accent-soft: #333830;
+  --border: #414842;
+  --chip-bg: #303532;
+  --chip-bg-soft: #363c37;
+  --code-bg: #292e2a;
+  --glass-bg: rgb(255 255 255 / 0.14);
+  --glass-border: rgb(255 255 255 / 0.24);
+
+  --btn-primary-bg: #e3e0d4;
+  --btn-primary-text: #202421;
+  --btn-ghost-border: #737b74;
+  --btn-ghost-text: #e3e0d4;
+  --nav-active-bg: #e3e0d4;
+  --nav-active-text: #202421;
+  --hero-accent: #a9b5a2;
 
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.3);
   --shadow-md: 0 6px 24px rgb(0 0 0 / 0.35);
