@@ -7,8 +7,17 @@ const heroImagenes = {
   light: "assets/inicio.png",
   dark: "assets/inicio-noche.png",
 };
+const logos = document.querySelectorAll("[data-logo]");
+const logoImagenes = {
+  light: "assets/Logotipo.png?v=2",
+  dark: "assets/logotipo-noche.png?v=2",
+};
 
 Object.values(heroImagenes).forEach((src) => {
+  const img = new Image();
+  img.src = src;
+});
+Object.values(logoImagenes).forEach((src) => {
   const img = new Image();
   img.src = src;
 });
@@ -18,6 +27,9 @@ function aplicarTema(tema) {
   toggle.setAttribute("aria-pressed", String(tema === "dark"));
   iconoTema.textContent = tema === "dark" ? "☀" : "☾";
   if (heroLogo) heroLogo.src = heroImagenes[tema];
+  logos.forEach((logo) => {
+    logo.src = logoImagenes[tema];
+  });
 }
 
 aplicarTema(raiz.dataset.theme || "light");

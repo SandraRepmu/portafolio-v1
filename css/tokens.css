@@ -30,6 +30,10 @@
   --glass-bg: rgb(255 255 255 / 0.55);     /* fondo difuminado sobre imágenes */
   --glass-border: rgb(255 255 255 / 0.7);
 
+  /* ---- Luces ambientales del hero (sutiles; sobre fondo cálido necesitan más presencia) ---- */
+  --hero-glow-sage: rgb(130 155 125 / 0.2);    /* verde salvia suave */
+  --hero-glow-gold: rgb(220 185 115 / 0.16);   /* beige/dorado suave */
+
   /* ---- Roles derivados (botones y navegación) ---- */
   --btn-primary-bg: var(--chip-bg);
   --btn-primary-text: var(--bg);
@@ -115,6 +119,10 @@
   --code-bg: #292e2a;
   --glass-bg: rgb(255 255 255 / 0.14);
   --glass-border: rgb(255 255 255 / 0.24);
+
+  /* ---- Luces ambientales del hero (algo más visibles que en claro) ---- */
+  --hero-glow-sage: rgb(120 150 115 / 0.14);
+  --hero-glow-gold: rgb(210 155 70 / 0.12);
 
   --btn-primary-bg: #e3e0d4;
   --btn-primary-text: #202421;

@@ -128,7 +128,8 @@ a:hover {
 
 .nav__logo img {
   width: 12rem;
-  height: auto;
+  height: 3.8rem;
+  object-fit: contain;
 }
 
 .nav__links {
@@ -342,6 +343,53 @@ a:hover {
   padding-top: calc(var(--header-h) + var(--space-6));
   position: relative;
   overflow: hidden;
+  isolation: isolate;
+}
+
+/* ---- Luces ambientales del fondo del hero (decorativas, tras el contenido) ---- */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+.hero::before {
+  top: -18%;
+  left: -6%;
+  width: clamp(24rem, 40vw, 40rem);
+  background: radial-gradient(circle, var(--hero-glow-sage) 0%, var(--hero-glow-sage) 42%, transparent 72%);
+  animation: hero-glow-sage 16s var(--ease) infinite alternate;
+}
+
+.hero::after {
+  top: 16%;
+  right: 2%;
+  width: clamp(20rem, 30vw, 30rem);
+  background: radial-gradient(circle, var(--hero-glow-gold) 0%, var(--hero-glow-gold) 42%, transparent 72%);
+  animation: hero-glow-gold 20s var(--ease) infinite alternate;
+}
+
+@keyframes hero-glow-sage {
+  from {
+    transform: translate(-2rem, -1.5rem) scale(1);
+  }
+  to {
+    transform: translate(2.5rem, 3rem) scale(1.18);
+  }
+}
+
+@keyframes hero-glow-gold {
+  from {
+    transform: translate(2rem, 2.5rem) scale(1.1);
+  }
+  to {
+    transform: translate(-2.5rem, -2rem) scale(0.95);
+  }
 }
 
 .hero__grid {
@@ -930,6 +978,11 @@ a:hover {
     opacity: 1;
     transform: none;
   }
+
+  .hero::before,
+  .hero::after {
+    animation: none;
+  }
 }
 
 /* ---- Responsive ---- */
@@ -942,6 +995,17 @@ a:hover {
   .about__grid,
   .contact__grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero::before {
+    top: -8%;
+    left: -14%;
+  }
+
+  .hero::after {
+    top: auto;
+    bottom: 6%;
+    right: 0%;
   }
 }
 
@@ -957,5 +1021,13 @@ a:hover {
   .about__fact {
     grid-template-columns: 1fr;
     gap: 0;
+  }
+
+  .hero::before {
+    width: 16rem;
+  }
+
+  .hero::after {
+    width: 13rem;
   }
 }
