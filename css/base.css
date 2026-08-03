@@ -849,20 +849,77 @@ a:hover {
 
 /* ---- Habilidades ---- */
 .skills {
+  position: relative;
   background: var(--bg-alt);
+  overflow: hidden;
+}
+
+/* Luz ambiental muy tenue detrás de la zona de tarjetas */
+.skills::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: -16rem;
+  left: -10rem;
+  width: 34rem;
+  height: 34rem;
+  background: radial-gradient(circle, var(--hero-glow-sage), transparent 68%);
+  animation: skills-drift 28s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes skills-drift {
+  to {
+    transform: translate3d(4.5rem, 3.5rem, 0);
+  }
+}
+
+.skills .section__eyebrow,
+.skills .section__title,
+.skills .section__lead {
+  position: relative;
+  z-index: 1;
+}
+
+.skills .section__lead {
+  max-width: none;
+}
+
+/* Entrada al hacer scroll: título, subtítulo y tarjetas suben suavemente
+   desde abajo (~15px) en 600ms, sin rebotes; funciona igual en ambos temas */
+.skills [data-reveal]:not(.is-visible) {
+  transform: translateY(0.94rem);
 }
 
 .skills__grid {
+  position: relative;
+  z-index: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--space-5);
 }
 
 .skill-group {
-  background: var(--surface);
+  background: var(--surface-alt);
   border: 1px solid var(--border);
   border-radius: var(--radius-l);
   padding: var(--space-5);
+  translate: 0 0;
+}
+
+.skill-group[data-reveal] {
+  transform: translateY(0.75rem);
+  transition:
+    opacity var(--dur-slow) var(--ease) var(--reveal-delay, 0ms),
+    transform var(--dur-slow) var(--ease) var(--reveal-delay, 0ms),
+    translate var(--dur-hover) var(--ease),
+    border-color var(--dur-hover) var(--ease),
+    background-color var(--dur-hover) var(--ease),
+    box-shadow var(--dur-hover) var(--ease);
+}
+
+.skill-group[data-reveal].is-visible {
+  transform: none;
 }
 
 .skill-group__title {
@@ -870,21 +927,28 @@ a:hover {
   align-items: center;
   gap: var(--space-3);
   font-size: var(--text-base);
+  color: var(--text);
   margin-bottom: var(--space-4);
 }
 
-.skill-group__icon {
-  width: 1.8rem;
-  height: 1.8rem;
-  border-radius: var(--radius-s);
-  background: var(--chip-bg);
-  display: grid;
-  place-items: center;
+.skill-group__title::after {
+  content: "";
+  flex: none;
+  width: 1.25rem;
+  height: 2px;
+  margin-left: var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  opacity: 0;
+  transition: width var(--dur-hover) var(--ease), opacity var(--dur-hover) var(--ease);
 }
 
-.skill-group__icon img {
-  width: 1.1rem;
-  height: auto;
+.skill-group__icon {
+  flex: none;
+  width: 1.4rem;
+  height: 1.4rem;
+  color: var(--text-soft);
+  transition: color var(--dur-hover) var(--ease), translate var(--dur-hover) var(--ease);
 }
 
 .skill-group__list {
@@ -893,7 +957,108 @@ a:hover {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  column-gap: var(--space-2);
+  row-gap: var(--space-2);
+}
+
+.skill-group__item {
+  font-size: var(--text-sm);
+  color: var(--text-soft);
+}
+
+.skill-group__item::after {
+  content: "·";
+  margin-left: var(--space-2);
+  color: var(--text-faint);
+}
+
+.skill-group__item:last-child::after {
+  content: none;
+}
+
+/* Frontend: solo un énfasis muy ligero */
+.skill-group--frontend .skill-group__title {
+  font-weight: 700;
+}
+
+.skill-group--frontend .skill-group__title::after {
+  opacity: 1;
+  width: 2rem;
+}
+
+.skill-group--frontend .skill-group__icon {
+  color: var(--accent-strong);
+}
+
+[data-theme="dark"] .skill-group--frontend .skill-group__icon {
+  color: var(--accent);
+}
+
+/* Hover: solo puntero fino (escritorio) */
+@media (hover: hover) and (pointer: fine) {
+  .skill-group:hover {
+    translate: 0 -6px;
+    border-color: var(--accent-hover);
+    background-color: var(--card-hover-bg);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .skill-group:hover .skill-group__icon {
+    translate: 0 -2px;
+    color: var(--accent-hover);
+  }
+
+  .skill-group:hover .skill-group__title::after {
+    opacity: 1;
+    width: 2.5rem;
+  }
+}
+
+/* Responsive: tablet 2+2, móvil 1 columna */
+@media (max-width: 64rem) {
+  .skills__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 48rem) {
+  .skills__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills::before {
+    width: 22rem;
+    height: 22rem;
+    top: -10rem;
+    left: -6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills::before {
+    animation: none;
+  }
+
+  .skill-group[data-reveal],
+  .skill-group[data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+    translate: none;
+    transition: none;
+  }
+
+  .skill-group:hover {
+    translate: none;
+  }
+
+  .skill-group:hover .skill-group__icon {
+    translate: none;
+  }
+
+  .skill-group__title::after,
+  .skill-group__icon {
+    transition: none;
+  }
 }
 
 /* ---- Contacto ---- */

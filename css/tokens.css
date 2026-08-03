@@ -43,11 +43,14 @@
   --nav-active-text: var(--bg);
   --text-muted: var(--text-soft);      /* texto aún más discreto (hero__tech) */
   --hero-accent: var(--accent-strong); /* destacados del hero */
+  --accent-hover: color-mix(in srgb, var(--accent) 55%, var(--accent-strong)); /* salvia reforzado: borde e icono al hover */
+  --card-hover-bg: color-mix(in srgb, var(--accent) 8%, var(--bg));           /* fondo sutil al hover */
 
   /* ---- Sombras ---- */
   --shadow-sm: 0 1px 2px rgb(48 64 64 / 0.08);
   --shadow-md: 0 6px 24px rgb(48 64 64 / 0.12);
   --shadow-lg: 0 16px 48px rgb(48 64 64 / 0.18);
+  --shadow-hover: 0 6px 18px rgb(48 64 64 / 0.14); /* hover de tarjetas: profundidad suave */
 
   /* ---- Radios ---- */
   --radius-s: 6px;
@@ -90,6 +93,7 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --dur-fast: 150ms;
   --dur: 300ms;
+  --dur-hover: 300ms; /* hovers de tarjetas */
   --dur-slow: 600ms;
 
   /* ---- Capas ---- */
@@ -131,10 +135,13 @@
   --nav-active-bg: #e3e0d4;
   --nav-active-text: #202421;
   --hero-accent: #a9b5a2;
+  --accent-hover: color-mix(in srgb, var(--accent) 72%, var(--text)); /* salvia claro: se nota sin aclarar la tarjeta */
+  --card-hover-bg: color-mix(in srgb, var(--accent) 8%, var(--surface)); /* tinte salvia tenue */
 
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.3);
   --shadow-md: 0 6px 24px rgb(0 0 0 / 0.35);
   --shadow-lg: 0 16px 48px rgb(0 0 0 / 0.45);
+  --shadow-hover: 0 6px 16px rgb(0 0 0 / 0.3); /* hover: profundidad visible, sin excesos */
 }
 
 /* ---- Movimiento ---- */
