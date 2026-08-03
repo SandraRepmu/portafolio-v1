@@ -17,7 +17,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/tokens.css" />
-    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/base.css?v=7" />
     <script>
       (function () {
         var saved = localStorage.getItem("theme");
@@ -202,59 +202,106 @@
       </section>
 
       <!-- ============ CONTACTO ============ -->
-      <section class="section" id="contacto" aria-labelledby="contact-title">
+      <section class="section contact" id="contacto" aria-labelledby="contact-title">
         <div class="container">
-          <p class="section__eyebrow" data-reveal>Contacto</p>
-          <h2 class="section__title" id="contact-title" data-reveal>
-            ¿Hablamos de tu próximo proyecto?
-          </h2>
-
           <div class="contact__grid">
-            <div class="contact__card" data-reveal>
+            <div class="contact__content" data-reveal>
+              <p class="section__eyebrow">Contacto</p>
+              <h2 class="section__title" id="contact-title">¿Hablamos?</h2>
               <p class="contact__intro">
-                Estoy abierta a prácticas, colaboraciones y proyectos donde pueda seguir
-                creciendo como desarrolladora frontend. Escríbeme por cualquiera de estos
-                canales.
+                Si has llegado hasta aquí, ya conoces un poco de mí y de mi trabajo.
+                Si quieres saber algo más o simplemente ponerte en contacto conmigo,
+                aquí me encuentras.
               </p>
+
               <ul class="contact__list">
-                <li>
-                  <a class="contact__link" href="mailto:sandrarepmu@gmail.com">
-                    <img src="assets/icons/correo.png" alt="" width="96" height="64" />
+                <li class="contact__row">
+                  <a
+                    class="contact__link"
+                    href="mailto:sandrarepmu@gmail.com"
+                    title="Abrir cliente de correo"
+                  >
+                    <span class="contact__link-icon-chip" aria-hidden="true">
+                      <img class="contact__link-icon" src="assets/icons/icono-correo.png" alt="" />
+                    </span>
                     <span class="contact__link-label">Correo</span>
-                    <span class="contact__link-value">sandrarepmu@gmail.com</span>
                   </a>
+                  <button
+                    class="contact__link-copy"
+                    type="button"
+                    data-copy="sandrarepmu@gmail.com"
+                    aria-label="Copiar sandrarepmu@gmail.com"
+                    title="Copiar sandrarepmu@gmail.com"
+                  >
+                    <span class="contact__link-value" role="status">sandrarepmu@gmail.com</span>
+                    <span class="contact__copy-hint" aria-hidden="true">Copiar</span>
+                  </button>
                 </li>
-                <li>
-                  <a class="contact__link" href="https://www.linkedin.com/in/sanrepmu" target="_blank" rel="noopener">
-                    <img src="assets/icons/linkedin.png" alt="" width="96" height="65" />
+                <li class="contact__row">
+                  <a
+                    class="contact__link"
+                    href="https://www.linkedin.com/in/sanrepmu"
+                    target="_blank"
+                    rel="noopener"
+                    title="Abrir LinkedIn"
+                  >
+                    <span class="contact__link-icon-chip" aria-hidden="true">
+                      <img class="contact__link-icon" src="assets/icons/icono-linkedin.png" alt="" />
+                    </span>
                     <span class="contact__link-label">LinkedIn</span>
-                    <span class="contact__link-value">linkedin.com/in/sanrepmu</span>
                   </a>
+                  <button
+                    class="contact__link-copy"
+                    type="button"
+                    data-copy="linkedin.com/in/sanrepmu"
+                    aria-label="Copiar linkedin.com/in/sanrepmu"
+                    title="Copiar linkedin.com/in/sanrepmu"
+                  >
+                    <span class="contact__link-value" role="status">linkedin.com/in/sanrepmu</span>
+                    <span class="contact__copy-hint" aria-hidden="true">Copiar</span>
+                  </button>
                 </li>
-                <li>
-                  <a class="contact__link" href="https://github.com/SandraRepmu" target="_blank" rel="noopener">
-                    <img src="assets/icons/github.png" alt="" width="96" height="64" />
+                <li class="contact__row">
+                  <a
+                    class="contact__link"
+                    href="https://github.com/SandraRepmu"
+                    target="_blank"
+                    rel="noopener"
+                    title="Abrir GitHub"
+                  >
+                    <span class="contact__link-icon-chip" aria-hidden="true">
+                      <img class="contact__link-icon" src="assets/icons/icono-github.png" alt="" />
+                    </span>
                     <span class="contact__link-label">GitHub</span>
-                    <span class="contact__link-value">github.com/SandraRepmu</span>
                   </a>
+                  <button
+                    class="contact__link-copy"
+                    type="button"
+                    data-copy="github.com/SandraRepmu"
+                    aria-label="Copiar github.com/SandraRepmu"
+                    title="Copiar github.com/SandraRepmu"
+                  >
+                    <span class="contact__link-value" role="status">github.com/SandraRepmu</span>
+                    <span class="contact__copy-hint" aria-hidden="true">Copiar</span>
+                  </button>
                 </li>
               </ul>
+
+              <a class="contact__cv btn btn--ghost" href="Imports/CV.pdf" download>
+                <img src="assets/icons/descarga.png" alt="" width="96" height="65" />
+                Descargar CV
+              </a>
             </div>
 
-            <div class="contact__card" data-reveal data-reveal-delay="1">
-              <div>
-                <h3 class="about__card-title">Descarga mi CV</h3>
-                <p class="contact__intro" style="font-size: var(--text-base)">
-                  Toda mi trayectoria, formación y tecnologías, en un documento listo
-                  para imprimir o compartir.
-                </p>
-              </div>
-              <div>
-                <a class="btn btn--primary" href="Imports/CV.pdf" download>
-                  <img src="assets/icons/descarga.png" alt="" width="96" height="65" />
-                  Descargar CV (PDF)
-                </a>
-              </div>
+            <div class="contact__visual" data-reveal data-reveal-delay="1" aria-hidden="true">
+              <img
+                class="contact__illustration"
+                id="contact-illustration"
+                src="assets/contacto.png"
+                alt=""
+                width="1267"
+                height="703"
+              />
             </div>
           </div>
         </div>
@@ -273,7 +320,7 @@
       </div>
     </footer>
 
-    <script src="js/proyectos.js?v=2" defer></script>
-    <script src="js/main.js?v=2" defer></script>
+    <script src="js/proyectos.js?v=3" defer></script>
+    <script src="js/main.js?v=3" defer></script>
   </body>
 </html>

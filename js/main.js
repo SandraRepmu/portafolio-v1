@@ -7,6 +7,11 @@ const heroImagenes = {
   light: "assets/inicio.png",
   dark: "assets/inicio-noche.png",
 };
+const contactIllustration = document.getElementById("contact-illustration");
+const contactImagenes = {
+  light: "assets/contacto.png",
+  dark: "assets/contacto-noche.png?v=3",
+};
 const logos = document.querySelectorAll("[data-logo]");
 const logoImagenes = {
   light: "assets/Logotipo.png?v=2",
@@ -14,6 +19,10 @@ const logoImagenes = {
 };
 
 Object.values(heroImagenes).forEach((src) => {
+  const img = new Image();
+  img.src = src;
+});
+Object.values(contactImagenes).forEach((src) => {
   const img = new Image();
   img.src = src;
 });
@@ -27,6 +36,7 @@ function aplicarTema(tema) {
   toggle.setAttribute("aria-pressed", String(tema === "dark"));
   iconoTema.textContent = tema === "dark" ? "☀" : "☾";
   if (heroLogo) heroLogo.src = heroImagenes[tema];
+  if (contactIllustration) contactIllustration.src = contactImagenes[tema];
   logos.forEach((logo) => {
     logo.src = logoImagenes[tema];
   });
@@ -118,3 +128,38 @@ if (movible) {
 
   document.querySelectorAll("[data-reveal]").forEach((el) => reveal.observe(el));
 }
+
+/* ---- Copiar datos de contacto ---- */
+async function copiarTexto(texto) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(texto);
+    return;
+  }
+  const area = document.createElement("textarea");
+  area.value = texto;
+  area.setAttribute("readonly", "");
+  area.style.position = "fixed";
+  area.style.opacity = "0";
+  document.body.appendChild(area);
+  area.select();
+  document.execCommand("copy");
+  area.remove();
+}
+
+document.querySelectorAll(".contact__link-copy[data-copy]").forEach((boton) => {
+  boton.addEventListener("click", async () => {
+    try {
+      await copiarTexto(boton.dataset.copy);
+      const valor = boton.querySelector(".contact__link-value");
+      const original = valor.textContent;
+      boton.classList.add("is-copied");
+      valor.textContent = "✓ Copiado";
+      setTimeout(() => {
+        valor.textContent = original;
+        boton.classList.remove("is-copied");
+      }, 1600);
+    } catch {
+      /* sin acceso al portapapeles: no hacer nada */
+    }
+  });
+});
