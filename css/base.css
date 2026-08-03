@@ -945,10 +945,15 @@ a:hover {
 
 .skill-group__icon {
   flex: none;
-  width: 1.4rem;
-  height: 1.4rem;
-  color: var(--text-soft);
-  transition: color var(--dur-hover) var(--ease), translate var(--dur-hover) var(--ease);
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+  filter: brightness(0.75); /* oscurece los trazos salvia sobre el fondo claro */
+  transition: translate var(--dur-hover) var(--ease);
+}
+
+[data-theme="dark"] .skill-group__icon {
+  filter: brightness(1.75); /* los aclara sobre el fondo oscuro */
 }
 
 .skill-group__list {
@@ -986,14 +991,6 @@ a:hover {
   width: 2rem;
 }
 
-.skill-group--frontend .skill-group__icon {
-  color: var(--accent-strong);
-}
-
-[data-theme="dark"] .skill-group--frontend .skill-group__icon {
-  color: var(--accent);
-}
-
 /* Hover: solo puntero fino (escritorio) */
 @media (hover: hover) and (pointer: fine) {
   .skill-group:hover {
@@ -1005,7 +1002,6 @@ a:hover {
 
   .skill-group:hover .skill-group__icon {
     translate: 0 -2px;
-    color: var(--accent-hover);
   }
 
   .skill-group:hover .skill-group__title::after {
