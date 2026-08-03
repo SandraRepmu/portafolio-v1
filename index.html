@@ -17,7 +17,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/tokens.css" />
-    <link rel="stylesheet" href="css/base.css?v=7" />
+    <link rel="stylesheet" href="css/base.css?v=17" />
     <script>
       (function () {
         var saved = localStorage.getItem("theme");
@@ -88,9 +88,7 @@
             </p>
             <div class="hero__actions hero__in">
               <a class="btn btn--primary" href="#proyectos">Ver proyectos</a>
-              <a class="btn btn--ghost" href="Imports/CV.pdf" download>
-                Descargar CV
-              </a>
+              <a class="btn btn--ghost" href="#contacto">Contacto</a>
             </div>
             <p class="hero__tech hero__in">HTML · CSS · JavaScript · PHP · MySQL</p>
           </div>
@@ -115,8 +113,12 @@
           <div class="about__grid">
             <div class="about__media" data-reveal>
               <div class="about__photo">
-                <!-- Futura fotografía:
-                     <img src="assets/foto-sandra.jpg" alt="Sandra" /> -->
+                <img
+                  src="assets/foto-sandra.png?v=2"
+                  alt="Fotografía de Sandra Repiso Muñoz"
+                  width="877"
+                  height="1291"
+                />
               </div>
             </div>
 
@@ -286,11 +288,6 @@
                   </button>
                 </li>
               </ul>
-
-              <a class="contact__cv btn btn--ghost" href="Imports/CV.pdf" download>
-                <img src="assets/icons/descarga.png" alt="" width="96" height="65" />
-                Descargar CV
-              </a>
             </div>
 
             <div class="contact__visual" data-reveal data-reveal-delay="1" aria-hidden="true">
@@ -311,16 +308,16 @@
     <footer class="footer">
       <div class="container footer__inner">
         <p class="footer__brand">
-          <img src="assets/Logotipo.png?v=2" alt="" width="42" height="13" />
-          Sandra Repiso Muñoz
+          <img src="assets/Logotipo.png?v=2" alt="Sandra Repiso Muñoz" width="42" height="13" data-logo />
         </p>
-        <p class="footer__note">
-          © 2026 · Hecho a mano con HTML, CSS y JavaScript
-        </p>
+        <a class="footer__top" href="#inicio">
+          Volver arriba <span aria-hidden="true">↑</span>
+        </a>
+        <p class="footer__note">© 2026 · Diseñado y desarrollado por Sandra</p>
       </div>
     </footer>
 
     <script src="js/proyectos.js?v=3" defer></script>
-    <script src="js/main.js?v=3" defer></script>
+    <script src="js/main.js?v=4" defer></script>
   </body>
 </html>

@@ -7,5 +7,4 @@ skills-lock.json
 
 # Originales de Imports (duplicados en assets/)
 Imports/iconos/
-Imports/Logotipo.png
-Imports/inicio.png
+Imports/*.png

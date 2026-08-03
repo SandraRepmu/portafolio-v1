@@ -129,6 +129,14 @@ if (movible) {
   document.querySelectorAll("[data-reveal]").forEach((el) => reveal.observe(el));
 }
 
+/* ---- Volver arriba ---- */
+const volverArriba = document.querySelector(".footer__top");
+
+volverArriba?.addEventListener("click", (e) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: movible ? "auto" : "smooth" });
+});
+
 /* ---- Copiar datos de contacto ---- */
 async function copiarTexto(texto) {
   if (navigator.clipboard && window.isSecureContext) {
