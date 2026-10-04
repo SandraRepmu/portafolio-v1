@@ -11,7 +11,7 @@ const GRUPOS_HABILIDADES = [
   {
     titulo: "Frontend",
     modificador: "frontend",
-    items: ["HTML5", "CSS3", "JavaScript", "jQuery", "Diseño responsive"],
+    items: ["HTML5", "CSS3", "JavaScript", "TypeScript", "jQuery", "Responsive Design"],
     icono: "assets/icons/icono-frontend.png",
   },
   {
@@ -25,9 +25,28 @@ const GRUPOS_HABILIDADES = [
     icono: "assets/icons/icono-bases.png",
   },
   {
+    titulo: "CMS & E-commerce",
+    items: ["WordPress", "Elementor", "WooCommerce"],
+    icono: "assets/icons/icono-cms.svg?v=2",
+  },
+  {
     titulo: "Herramientas",
-    items: ["Visual Studio Code", "Eclipse", "XAMPP", "SQL Developer", "Git", "Draw.io"],
+    items: ["Git", "GitHub"],
     icono: "assets/icons/icono-herramientas.png",
+  },
+  {
+    titulo: "Ampliando conocimientos",
+    modificador: "learning",
+    items: ["React", "Angular"],
+    icono: "assets/icons/icono-learning.svg?v=2",
+    nota: "En aprendizaje",
+  },
+  {
+    titulo: "IA aplicada al desarrollo",
+    modificador: "ai",
+    items: ["ChatGPT", "Codex", "OpenCode"],
+    icono: "assets/icons/icono-ia.svg?v=2",
+    nota: "Como apoyo en el desarrollo",
   },
 ];
 
@@ -78,13 +97,18 @@ function renderHabilidades(contenedor) {
       .map((item) => `<li class="skill-group__item">${item}</li>`)
       .join("");
     const modificador = grupo.modificador ? ` skill-group--${grupo.modificador}` : "";
+    const icono = grupo.icono
+      ? `<img class="skill-group__icon" src="${grupo.icono}" alt="" width="36" height="36" loading="lazy" />`
+      : "";
+    const nota = grupo.nota ? `<p class="skill-group__note">${grupo.nota}</p>` : "";
     return `
       <article class="skill-group${modificador}" data-reveal style="--reveal-delay: ${(i + 1) * 140}ms">
         <h3 class="skill-group__title">
-          <img class="skill-group__icon" src="${grupo.icono}" alt="" width="36" height="36" loading="lazy" />
+          ${icono}
           ${grupo.titulo}
         </h3>
         <ul class="skill-group__list">${items}</ul>
+        ${nota}
       </article>
     `;
   }).join("");

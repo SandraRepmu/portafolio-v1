@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" role="img" aria-hidden="true">
+  <!-- Toldo -->
+  <path d="M8 14h80v14H8z" fill="#a7b8a4"/>
+  <path d="M8 14h80v14H8z" stroke="#3f4c4c" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M8 28a8 8 0 0 0 16 0 8 8 0 0 0 16 0 8 8 0 0 0 16 0 8 8 0 0 0 16 0 8 8 0 0 0 16 0" fill="#c9d2c2" stroke="#3f4c4c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Cuerpo tienda -->
+  <path d="M14 44h68v44H14z" stroke="#3f4c4c" stroke-width="6" stroke-linejoin="round"/>
+  <!-- Puerta -->
+  <rect x="40" y="62" width="16" height="26" fill="#a7b8a4" opacity="0.45"/>
+  <path d="M40 88V62h16v26" stroke="#3f4c4c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Escaparates -->
+  <rect x="20" y="54" width="13" height="16" rx="2" fill="#a7b8a4"/>
+  <rect x="63" y="54" width="13" height="16" rx="2" fill="#a7b8a4"/>
+</svg>

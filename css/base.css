@@ -989,6 +989,19 @@ a:hover {
   width: 2rem;
 }
 
+/* Grupos con estado distinto: mismo sistema visual, matiz sutil.
+   "Ampliando conocimientos" usa borde discontinuo para no parecer
+   dominio al mismo nivel; la nota aclara el matiz en ambos casos. */
+.skill-group--learning {
+  border-style: dashed;
+}
+
+.skill-group__note {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+}
+
 /* Hover: solo puntero fino (escritorio) */
 @media (hover: hover) and (pointer: fine) {
   .skill-group:hover {
