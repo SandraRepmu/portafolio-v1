@@ -740,6 +740,17 @@ a:hover {
   border-color: var(--accent);
 }
 
+/* Caja-enlace: toda la tarjeta es un enlace, sin color de enlace */
+a.project-card--link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+a.project-card--link:hover {
+  color: inherit;
+}
+
 .project-card__media {
   aspect-ratio: 16 / 9;
   background: var(--chip-bg-soft);
@@ -846,6 +857,15 @@ a:hover {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+/* Recuadro "En progreso" como tarjeta final del grid de proyectos */
+.projects__empty--card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
 }
 
 /* ---- Habilidades ---- */

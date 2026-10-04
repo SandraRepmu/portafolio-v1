@@ -5,7 +5,16 @@
    - repo: URL del repositorio (opcional).
    - imagen: captura de la app (opcional; sin imagen se muestra placeholder). */
 
-const PROYECTOS = [];
+const PROYECTOS = [
+  {
+    titulo: "El Santuario de las Huellas",
+    descripcion:
+      "Aplicación web para un refugio animal: catálogo de animales en adopción, fichas detalladas, formulario de contacto y panel de administración. Versión full-stack con PHP y MySQL; demo online.",
+    stack: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
+    app: "https://sandrarepmu.github.io/santuariodelashuellas/",
+    cajaEnlace: true,
+  },
+];
 
 const GRUPOS_HABILIDADES = [
   {
@@ -50,6 +59,19 @@ const GRUPOS_HABILIDADES = [
   },
 ];
 
+function tarjetaEnProgreso(retraso = 0) {
+  return `
+    <div class="projects__empty projects__empty--card" data-reveal style="--reveal-delay: ${retraso}ms">
+      <span class="projects__empty-badge">En progreso</span>
+      <p class="projects__empty-title">Nuevo proyecto en camino</p>
+      <p>
+        Estoy trabajando en la próxima aplicación. Mientras tanto,
+        puedes ver mi trabajo en GitHub.
+      </p>
+    </div>
+  `;
+}
+
 function renderProyectos(contenedor) {
   if (PROYECTOS.length === 0) {
     contenedor.innerHTML = `
@@ -65,7 +87,23 @@ function renderProyectos(contenedor) {
     return;
   }
 
-  contenedor.innerHTML = PROYECTOS.map((p, i) => {
+  contenedor.innerHTML =
+    PROYECTOS.map((p, i) => {
+    // Caja-enlace: sin imagen ni enlaces; toda la caja abre la app.
+    if (p.cajaEnlace) {
+      const stackSolo = p.stack.map((t) => `<span class="chip">${t}</span>`).join("");
+      return `
+      <a class="project-card project-card--link" href="${p.app}" target="_blank" rel="noopener"
+         aria-label="Abrir ${p.titulo}" data-reveal style="--reveal-delay: ${(i + 1) * 120}ms">
+        <div class="project-card__body">
+          <h3 class="project-card__title">${p.titulo}</h3>
+          <p class="project-card__desc">${p.descripcion}</p>
+          <div class="project-card__stack">${stackSolo}</div>
+        </div>
+      </a>
+      `;
+    }
+
     const media = p.imagen
       ? `<img src="${p.imagen}" alt="Captura de ${p.titulo}" loading="lazy" />`
       : `<span style="font-family: var(--font-display); color: var(--text-faint); font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.1em;">Próximamente</span>`;
@@ -88,7 +126,7 @@ function renderProyectos(contenedor) {
         </div>
       </article>
     `;
-  }).join("");
+  }).join("") + tarjetaEnProgreso((PROYECTOS.length + 1) * 120);
 }
 
 function renderHabilidades(contenedor) {
