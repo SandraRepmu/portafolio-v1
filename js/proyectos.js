@@ -34,7 +34,7 @@ const GRUPOS_HABILIDADES = [
 function renderProyectos(contenedor) {
   if (PROYECTOS.length === 0) {
     contenedor.innerHTML = `
-      <div class="projects__empty">
+      <div class="projects__empty" data-reveal>
         <span class="projects__empty-badge">En preparación</span>
         <p class="projects__empty-title">Mis próximos proyectos aparecerán aquí</p>
         <p>
@@ -46,7 +46,7 @@ function renderProyectos(contenedor) {
     return;
   }
 
-  contenedor.innerHTML = PROYECTOS.map((p) => {
+  contenedor.innerHTML = PROYECTOS.map((p, i) => {
     const media = p.imagen
       ? `<img src="${p.imagen}" alt="Captura de ${p.titulo}" loading="lazy" />`
       : `<span style="font-family: var(--font-display); color: var(--text-faint); font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.1em;">Próximamente</span>`;
@@ -56,7 +56,7 @@ function renderProyectos(contenedor) {
     const stack = p.stack.map((t) => `<span class="chip">${t}</span>`).join("");
 
     return `
-      <article class="project-card" data-reveal>
+      <article class="project-card" data-reveal style="--reveal-delay: ${(i + 1) * 120}ms">
         <div class="project-card__media">${media}</div>
         <div class="project-card__body">
           <h3 class="project-card__title">${p.titulo}</h3>

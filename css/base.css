@@ -570,7 +570,7 @@ a:hover {
 
 .about__grid {
   display: grid;
-  grid-template-columns: minmax(16rem, 20rem) 1fr;
+  grid-template-columns: minmax(18rem, 24rem) 1fr;
   gap: var(--space-8);
   align-items: start;
 }
@@ -888,9 +888,6 @@ a:hover {
 
 /* Entrada al hacer scroll: título, subtítulo y tarjetas suben suavemente
    desde abajo (~15px) en 600ms, sin rebotes; funciona igual en ambos temas */
-.skills [data-reveal]:not(.is-visible) {
-  transform: translateY(0.94rem);
-}
 
 .skills__grid {
   position: relative;
@@ -1303,11 +1300,14 @@ a:hover {
   }
 }
 
-/* ---- Reveal on scroll ---- */
+/* ---- Reveal on scroll ----
+   Entrada suave: opacity + translateY (~15px) en 600ms, una sola vez.
+   El retraso se controla con data-reveal-delay o con --reveal-delay inline. */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(1.5rem);
-  transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease);
+  transform: translateY(0.94rem);
+  transition: opacity var(--dur-slow) var(--ease) var(--reveal-delay, 0ms),
+    transform var(--dur-slow) var(--ease) var(--reveal-delay, 0ms);
 }
 
 [data-reveal].is-visible {
@@ -1373,7 +1373,7 @@ a:hover {
   }
 
   .about__grid {
-    grid-template-columns: minmax(13rem, 16rem) 1fr;
+    grid-template-columns: minmax(15rem, 20rem) 1fr;
     gap: var(--space-6);
   }
 
