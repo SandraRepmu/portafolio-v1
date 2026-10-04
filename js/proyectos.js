@@ -14,6 +14,14 @@ const PROYECTOS = [
     app: "https://sandrarepmu.github.io/santuariodelashuellas/",
     cajaEnlace: true,
   },
+  {
+    titulo: "VANÉLUNE — Nail Art Studio",
+    descripcion:
+      "Web para un estudio de nail art: catálogo de diseños, servicios, el estudio, reserva de citas y configurador de manicura. SPA con React y TypeScript.",
+    stack: ["HTML5", "CSS3", "JavaScript", "React", "TypeScript", "Vite", "React Router"],
+    app: "https://sandrarepmu.github.io/webnails/",
+    cajaEnlace: true,
+  },
 ];
 
 const GRUPOS_HABILIDADES = [
