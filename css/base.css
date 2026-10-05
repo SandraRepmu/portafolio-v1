@@ -716,6 +716,10 @@ a:hover {
 }
 
 /* ---- Proyectos ---- */
+#proyectos .section__lead {
+  max-width: none;
+}
+
 .projects__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr));
@@ -740,17 +744,6 @@ a:hover {
   border-color: var(--accent);
 }
 
-/* Caja-enlace: toda la tarjeta es un enlace, sin color de enlace */
-a.project-card--link {
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-}
-
-a.project-card--link:hover {
-  color: inherit;
-}
-
 .project-card__media {
   aspect-ratio: 16 / 9;
   background: var(--chip-bg-soft);
@@ -773,6 +766,19 @@ a.project-card--link:hover {
   flex: 1;
 }
 
+/* Único botón de la tarjeta: margin-top auto lo ancla abajo (botones alineados
+   entre tarjetas sin alturas fijas) */
+.project-card__actions {
+  display: flex;
+  margin-top: auto;
+  padding-top: var(--space-1);
+}
+
+/* Botón de tarjeta ligeramente más compacto en horizontal (solo en proyectos) */
+.project-card__actions .btn {
+  padding-inline: var(--space-5);
+}
+
 .project-card__title {
   font-size: var(--text-lg);
   margin-bottom: 0;
@@ -788,7 +794,12 @@ a.project-card--link:hover {
 .project-card__stack {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  gap: var(--space-1) var(--space-2);
+}
+
+/* Chips de tarjeta ligeramente más compactos (solo en proyectos) */
+.project-card__stack .chip {
+  padding: calc(var(--space-1) * 0.75) var(--space-3);
 }
 
 .chip {

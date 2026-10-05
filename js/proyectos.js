@@ -1,26 +1,25 @@
-/* Proyectos: sección preparada para recibir aplicaciones.
+/* Proyectos: tarjetas con captura 16/9, título, descripción, stack y botón "Ver proyecto".
    Para publicar un proyecto, añade un objeto a PROYECTOS con:
-   { titulo, descripcion, stack: [], app, repo, imagen }
-   - app: URL directa de la aplicación.
-   - repo: URL del repositorio (opcional).
-   - imagen: captura de la app (opcional; sin imagen se muestra placeholder). */
+   { titulo, descripcion, stack: [], app, imagen }
+   - app: URL directa de la demo (botón "Ver proyecto").
+   - imagen: captura real de la interfaz (16/9, object-fit cover). */
 
 const PROYECTOS = [
   {
     titulo: "El Santuario de las Huellas",
     descripcion:
-      "Aplicación web para un refugio animal: catálogo de animales en adopción, fichas detalladas, formulario de contacto y panel de administración. Versión full-stack con PHP y MySQL; demo online.",
-    stack: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
+      "Proyecto final de DAW para la gestión de un refugio animal, con catálogo y fichas de animales, formulario de contacto y panel de administración para gestionar animales y mensajes.",
+    stack: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
     app: "https://sandrarepmu.github.io/santuariodelashuellas/",
-    cajaEnlace: true,
+    imagen: "assets/proyectos/santuario-huellas.jpg",
   },
   {
     titulo: "VANÉLUNE — Nail Art Studio",
     descripcion:
-      "Web para un estudio de nail art: catálogo de diseños, servicios, el estudio, reserva de citas y configurador de manicura. SPA con React y TypeScript.",
-    stack: ["HTML5", "CSS3", "JavaScript", "React", "TypeScript", "Vite", "React Router"],
+      "Proyecto personal para un estudio de nail art, con catálogo de diseños y servicios, sistema de reserva y configurador interactivo de manicura.",
+    stack: ["React", "TypeScript", "CSS3", "Vite", "React Router"],
     app: "https://sandrarepmu.github.io/webnails/",
-    cajaEnlace: true,
+    imagen: "assets/proyectos/vanelune.jpg",
   },
 ];
 
@@ -73,8 +72,8 @@ function tarjetaEnProgreso(retraso = 0) {
       <span class="projects__empty-badge">En progreso</span>
       <p class="projects__empty-title">Nuevo proyecto en camino</p>
       <p>
-        Estoy trabajando en la próxima aplicación. Mientras tanto,
-        puedes ver mi trabajo en GitHub.
+        Estoy trabajando en mi próxima aplicación. Mientras tanto,
+        puedes ver el resto de mi trabajo en GitHub.
       </p>
     </div>
   `;
@@ -97,27 +96,9 @@ function renderProyectos(contenedor) {
 
   contenedor.innerHTML =
     PROYECTOS.map((p, i) => {
-    // Caja-enlace: sin imagen ni enlaces; toda la caja abre la app.
-    if (p.cajaEnlace) {
-      const stackSolo = p.stack.map((t) => `<span class="chip">${t}</span>`).join("");
-      return `
-      <a class="project-card project-card--link" href="${p.app}" target="_blank" rel="noopener"
-         aria-label="Abrir ${p.titulo}" data-reveal style="--reveal-delay: ${(i + 1) * 120}ms">
-        <div class="project-card__body">
-          <h3 class="project-card__title">${p.titulo}</h3>
-          <p class="project-card__desc">${p.descripcion}</p>
-          <div class="project-card__stack">${stackSolo}</div>
-        </div>
-      </a>
-      `;
-    }
-
     const media = p.imagen
-      ? `<img src="${p.imagen}" alt="Captura de ${p.titulo}" loading="lazy" />`
+      ? `<img src="${p.imagen}" alt="Imagen del proyecto ${p.titulo}" loading="lazy" />`
       : `<span style="font-family: var(--font-display); color: var(--text-faint); font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.1em;">Próximamente</span>`;
-    const repo = p.repo
-      ? `<a href="${p.repo}" target="_blank" rel="noopener">Código <span class="arrow" aria-hidden="true">→</span></a>`
-      : "";
     const stack = p.stack.map((t) => `<span class="chip">${t}</span>`).join("");
 
     return `
@@ -127,9 +108,8 @@ function renderProyectos(contenedor) {
           <h3 class="project-card__title">${p.titulo}</h3>
           <p class="project-card__desc">${p.descripcion}</p>
           <div class="project-card__stack">${stack}</div>
-          <div class="project-card__links">
-            <a href="${p.app}" target="_blank" rel="noopener">Abrir app <span class="arrow" aria-hidden="true">→</span></a>
-            ${repo}
+          <div class="project-card__actions">
+            <a class="btn btn--primary" href="${p.app}" target="_blank" rel="noopener noreferrer">Ver proyecto</a>
           </div>
         </div>
       </article>
